@@ -1,0 +1,42 @@
+#!/bin/bash
+##################################
+#     Update Script Turbomed     #
+##################################
+#
+# Von Alexander Meckelein
+#
+#
+### Umgebungsvariablen ###
+#
+# Nur Vollständige Pfadangaben verwenden
+# Alle Pfadangaben ohne abschliessenden /
+#
+
+# Infos zum Turbomed Download
+TM_SERVER="ftp://homepage:download@85.214.141.157"
+TM_AKTUELL_WINDOWS="Vollupdate_Version-14.5.1.md5-B23AB5CD9D3A3EBFEFEC6579C6E73B6D.exe"
+TM_AKTUELL_LINUX="TMLinux-Version-14.5.1.md5-705FE5764EEC21287212C6400097E5D8.zip"
+
+# wo sollen die Update Dateien gespeichert werden, wird gleichzeitig als
+# Temporärer Pfad für die entpackten Daten verwenden
+DOWNLOAD_PATH="/tmp/tm_update"
+
+# Infos zum Turbomed, wo ist es installiert
+TM_INSTALL_PATH="/opt/samba-freigabe/intern/turbomed"
+
+# Infos zur SMB Freigabe
+SMB_USER="nobody"
+SMB_GROUP="nogroup"
+SMB_CHMOD_FILE="0777"
+SMB_CHMOD_DIR="0777"
+
+# Daten zum FOS, kann leider nicht verändert werden, sind durch die beiliegenden
+# Packete so vorgegeben
+FO_VER="11.0.6.163-1"
+FO_INSTALL_PATH="/opt/FastObjects_t7_11.0"
+
+# Dynamisch generierte Dateien, bitte nichts ändern
+# ptserver.cfg ist die Config Datei für die Datenbank von TM
+# poetd ist das Startscript für den FOS Server
+PTSERV=${TM_INSTALL_PATH}/linux/config/ptserver.cfg
+POETD="/etc/init.d/poetd"
