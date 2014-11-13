@@ -18,7 +18,7 @@ A) Automatisches Update von *buntu und Installation des TM Linux Server
 4. Aufruf des Vorbereitungsscripts mit: ~/Downloads/tm-linux-server-vorbereitungsscript.sh
 5. Die auftretenden Fragen können aktuell alle mit "j" beantwortet werden
 
-B) Konfiguration von Samba (Die aktuelle Version bietet noch keinerlei Sicherheit) 
+B) Konfiguration von Samba (Die aktuelle Version der angepassten smb.conf bietet noch keinerlei Sicherheit) 
 
 1. Machen Sie eine Sicherungskopie der ursprünglichen smb.conf --> "sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak"
 2. Überschreiben Sie die smb.conf mit der angepassten Version --> "sudo mv /[Pfad zur angepassten smb.conf]/smb.conf /etc/samba/
