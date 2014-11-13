@@ -4,9 +4,7 @@ tm-linux-server-installhelper
 Hilfreiche Scripte zur Installation und Inbetriebnahme eines Turbomedservers unter *buntu Linux
 
 Voraussetzungen:
-Es muss ein OS von Canonical installiert sein (Ubuntu, Kubuntu, LXbuntu o.ä.) 
-Es empfiehlt sich momentan die 64bit Desktopvariante von Ubuntu zu verwenden
-Es muss eine gültige Lizenz für die Nutzung der AIS "Turbomed" der Firma CGM vorliegen
+Es muss ein OS von Canonical installiert (Ubuntu, Kubuntu, LXbuntu o.ä.) sein. Es spielt keine Rolle ob das OS physikalisch auf dem PC installiert ist oder in einer VM läuft. Es empfiehlt sich momentan die 64bit Desktopvariante von Ubuntu zu verwenden. Es muss eine gültige Lizenz für die Nutzung der AIS "Turbomed" der Firma CGM vorliegen. Der PC muss eine Verbindung ins Internet haben.
 
 Procedere:
 
