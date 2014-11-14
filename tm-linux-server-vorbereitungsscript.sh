@@ -9,19 +9,20 @@ if [ -f ~/Downloads/TMLinux-Version*.zip ];then
 	echo "Die Turbomedinstallationsdatei scheint vorhanden zu sein...fahre fort mit der Vorbereitung"
 	sleep 5s
 
+# Diese Funktion wird zwecks Übersichtlichkeit vom Installscript übernommen
 # Das System auf den aktuellen Stand bringen
-clear
-echo "Systemupdate für Ubuntu wird ausgeführt"
-sleep 5s
-sudo apt-get update 
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
-sudo apt-get autoremove
-echo ""
-echo ""
-echo "Sollten während des Updatevorgangs Fehler aufgetreten sein melden Sie sich bitte im Forum"
-echo "Fahre in 10 Sekunden mit der Vorbereitung fort..."
-sleep 10
+#clear
+#echo "Systemupdate für Ubuntu wird ausgeführt"
+#sleep 5s
+#sudo apt-get update 
+#sudo apt-get upgrade
+#sudo apt-get dist-upgrade
+#sudo apt-get autoremove
+#echo ""
+#echo ""
+#echo "Sollten während des Updatevorgangs Fehler aufgetreten sein melden Sie sich bitte im Forum"
+#echo "Fahre in 10 Sekunden mit der Vorbereitung fort..."
+#sleep 10
 
 # Zusätzliche benötigte Pakete nachinstallieren
 clear
