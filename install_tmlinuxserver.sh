@@ -20,7 +20,7 @@ case "$choice" in
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
 	sudo apt-get autoremove
-	./install_tmlinuxserver.sh;;
+	./install_tmlinuxserver.sh
 
 	"Installation von tm-linux-server-installhelper")
 	dialog --clear
@@ -41,7 +41,8 @@ case "$choice" in
 			cd ~/tm-linux-server-scripte
 			git clone git://github.com/elvito/tm-linux-server-installhelper.git .
 			dialog --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 
-		fi;;
+			./install_tmlinuxserver.sh
+		fi
 		
 	"Installation von TM Linux Server")
 	dialog --clear
@@ -57,31 +58,40 @@ case "$choice" in
 	echo ""
 	echo "##### Hier sollte eine PID und "running" stehen, falls nicht melden Sie sich im Forum #####"
 	wait
+	./install_tmlinuxserver.sh
 	
-	if [ $choice = "Vollständiges Entfernen von TM Linux Server" ]
-		then
-		dialog --clear
-	fi
+	"Vollständiges Entfernen von TM Linux Server")
+	sudo /opt/turbomed/TM_setup -rm
+	#rm -f /opt/FastObject* 
+	dialog --infobox "Löschen von TM Linux Server abgeschlossen" 5 40
+	dialog --clear
+	./install_tmlinuxserver.sh
 
-	if [ $choice = "Einrichtung von Samba" ]
+	"Einrichtung von Samba")
+	if [ -d ~/tm-linux-server-scripte/ ]
 		then
+		dialog --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 5 40
+		sleep 5s
+		sudo cp -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
+		sudo chmod 644 /etc/samba/smb.conf
+		sudo service samba restart
+		dialog --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 5 40
 		dialog --clear
-			if [ -d ~/tm-linux-server-scripte/ ]
-				then
-				dialog --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 5 40
-				sleep 5s
-				sudo cp -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
-				sudo chmod 644 /etc/samba/smb.conf
-				sudo service samba restart
-			fi
-	fi
-
-	if [ $choice = "Einrichtung von iptables (Firewall)" ]
-		then
+		./install_tmlinuxserver.sh
+	else 	
+		dialog --msgbox "Installieren Sie zuerst tm-linux-server-installhelper"
+		dialog --clear
+		./install_tmlinuxserver.sh
 	fi
 	
-	if [ $choice = "Dieses Menü beenden" ]
-		then
-		exit 0
-	fi
+			
+	
+
+	"Einrichtung von iptables (Firewall)")
+	dialog --msgbox "Diese Option ist noch nicht implementiert"
+	dialog --clear
+	./install_tmlinuxserver.sh
+	
+	"Dieses Menü beenden")
+	exit 0
 esac
