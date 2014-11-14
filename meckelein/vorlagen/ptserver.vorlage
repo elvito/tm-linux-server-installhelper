@@ -1,4 +1,4 @@
-[]
+PTSERVERCFG=("[]
 databaseDirectory=${TM_INSTALL_PATH}
 defaultDatabasePath=${TM_INSTALL_PATH}
 indexConvert2DupTree=1
@@ -27,5 +27,4 @@ name=${TM_INSTALL_PATH}/StammDB/Backup
 [schemata\DruckDict]
 name=${TM_INSTALL_PATH}/Dictionary
 [databases\DruckDB]
-name=${TM_INSTALL_PATH}/DruckDB
-
+name=${TM_INSTALL_PATH}/DruckDB")

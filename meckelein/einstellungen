@@ -19,10 +19,10 @@ TM_AKTUELL_LINUX="TMLinux-Version-14.5.1.md5-705FE5764EEC21287212C6400097E5D8.zi
 
 # wo sollen die Update Dateien gespeichert werden, wird gleichzeitig als
 # Temporärer Pfad für die entpackten Daten verwenden
-DOWNLOAD_PATH="/tmp/tm_update"
+DOWNLOAD_PATH="/home/tm/download"
 
 # Infos zum Turbomed, wo ist es installiert
-TM_INSTALL_PATH="/opt/samba-freigabe/intern/turbomed"
+TM_INSTALL_PATH="/opt/samba/turbomed"
 
 # Infos zur SMB Freigabe
 SMB_USER="nobody"

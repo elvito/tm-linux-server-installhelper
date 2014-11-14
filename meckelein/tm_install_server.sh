@@ -21,8 +21,7 @@
 #
 ##################################
 
-einstellungen=${0%/*}/einstellungen
-source "${einstellungen}"
+source "${0%/*}/einstellungen"
 
 if [ -d ${TM_INSTALL_PATH} ]; then 
   echo "Eine Installation von Turbomed wurde gefunden, Setup wird beendet"
@@ -30,7 +29,26 @@ if [ -d ${TM_INSTALL_PATH} ]; then
   exit 1;
 fi
 
-mkdir ${TM_INSTALL_PATH}
+read -p "Wollen Sie die Vorbereitung des Systems vom Script übernehmen lassen? (j/n): " installation
+case "${installation}" in
+  j|J)
+    # Vorbereiten der aktuellen Installation und hinzufügen der benötigten Packete
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    sudo apt-get autoremove
+    sudo apt-get install wget unzip dpkg p7zip-full libc6:i386 libgcc1:i386 libstdc++6:i386 libssl0.9.8:i386
+    echo
+    echo "Alle benötigten Packete sollten installiert sein"
+    ;;
+  n|N)
+    echo
+    echo "Keine Packete automatisch installiert, ich hoffe Sie haben das vorab getan :)"
+    echo "Installation wird weiter ausgeführt"
+    ;;
+esac
+
+mkdir -p ${TM_INSTALL_PATH}
 
 echo
 echo "Turbomed Dateien für den Linux Server entpacken"
@@ -43,10 +61,9 @@ echo "sowie kopieren der restlichen Dateien und erstellen von Infos"
 echo "Alle Vorgänge wurden dem Update Script von Turbomed entnommen"
 unzip -q -d ${TM_INSTALL_PATH} -o ${DOWNLOAD_PATH}/tm_linux/TMWin/linux/archive/turbomed.zip # vorhandene überschreiben
 unzip -q -d ${TM_INSTALL_PATH} -n ${DOWNLOAD_PATH}/tm_linux/TMWin/linux/archive/tm-var.zip # vorhandene beibehalten
-mkdir ${TM_INSTALL_PATH}/linux
-mkdir ${TM_INSTALL_PATH}/linux/bin
-mkdir ${TM_INSTALL_PATH}/linux/config
-mkdir ${TM_INSTALL_PATH}/linux/text
+mkdir -p ${TM_INSTALL_PATH}/linux/bin
+mkdir -p ${TM_INSTALL_PATH}/linux/config
+mkdir -p ${TM_INSTALL_PATH}/linux/text
 cp -Rf ${DOWNLOAD_PATH}/tm_linux/TMWin/TurboMed/* ${TM_INSTALL_PATH}/
 cp -Rf ${DOWNLOAD_PATH}/tm_linux/TMWin/linux/bin/* ${TM_INSTALL_PATH}/linux/bin/
 cp -Rf ${DOWNLOAD_PATH}/tm_linux/TMWin/linux/config/* ${TM_INSTALL_PATH}/linux/config/
@@ -71,10 +88,8 @@ cp -f ${DOWNLOAD_PATH}/tm_linux/TMWin/linux/config/license ${FO_INSTALL_PATH}/ru
 echo
 echo "Einstellungen für FOS erstellen und kopieren"
 if [ -f ${PTSERV} ]; then rm ${PTSERV}; fi
-
-while read; do
-  eval echo "$REPLY" >> ${PTSERV}
-done < vorlagen/ptserver.vorlage
+source "${0%/*}/vorlagen/ptserver.vorlage"
+echo "${PTSERVERCFG}" > ${PTSERV}
 
 # Erstellen und konfigurieren des Startscript
 echo
@@ -87,7 +102,7 @@ update-rc.d poetd defaults
 echo
 echo "Zugriffsrechte und User/Group setzen"
 chown ${SMB_USER}:${SMB_GROUP} -R ${TM_INSTALL_PATH}
-chmod ${SMB_CHMOD_FILE} -R ${TM_INSTALL_PATH}
+find ${TM_INSTALL_PATH} -type f -exec chmod ${SMB_CHMOD_FILE} \{\} \;
 find ${TM_INSTALL_PATH} -type d -exec chmod ${SMB_CHMOD_DIR} \{\} \;
 chmod 700 -R ${TM_INSTALL_PATH}/linux/bin
 chmod 555 /etc/init.d/poetd

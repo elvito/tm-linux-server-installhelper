@@ -29,7 +29,7 @@ source "${einstellungen}"
 if [ -d ${TM_INSTALL_PATH}/NetSetup ]; then rm -rf ${TM_INSTALL_PATH}/NetSetup/*; else mkdir ${TM_INSTALL_PATH}/NetSetup; fi
 7z x -o${TM_INSTALL_PATH}/NetSetup ${DOWNLOAD_PATH}/${TM_AKTUELL_WINDOWS}
 chown ${SMB_USER}:${SMB_GROUP} -R ${TM_INSTALL_PATH}/NetSetup
-chmod ${SMB_CHMOD} -R ${TM_INSTALL_PATH}/NetSetup
-find ${TM_INSTALL_PATH}/NetSetup -type f -name *.exe -exec chmod +x {} \;
+find ${TM_INSTALL_PATH}/NetSetup -type f -exec chmod ${SMB_CHMOD_FILE} \{\} \;
+find ${TM_INSTALL_PATH}/NetSetup -type d -exec chmod ${SMB_CHMOD_DIR} \{\} \;
 echo
 echo "Client Update steht in NetSetup Ordner zur Verfügung und kann direkt installiert werden."
