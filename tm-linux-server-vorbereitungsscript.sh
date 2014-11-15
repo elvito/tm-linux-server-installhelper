@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Wechsel ins Downloadverzeichnis
-cd ~/Downloads
-
 # Prüfung ob die TM.zip vorhanden ist
 if [ -f ~/Downloads/TMLinux-Version*.zip ]
 	then
