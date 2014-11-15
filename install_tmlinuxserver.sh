@@ -66,11 +66,11 @@ case "$choice" in
 	clear
 	cd ~/tm-linux-server-scripte
 	sudo ./tm-linux-server-vorbereitungsscript.sh >1
-	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
-	$DIALOG --clear
-	$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft beginnt in 5 Sekunden" 5 40
+	#$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
+	#$DIALOG --clear
+	#$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft beginnt in 5 Sekunden" 5 40
 	sleep 5s
-	$DIALOG --clear
+	#$DIALOG --clear
 	clear
 	/etc/init.d/poet status
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken" 5 40
