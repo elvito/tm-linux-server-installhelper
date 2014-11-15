@@ -5,15 +5,15 @@
 #apt-get install git dialog
 
 #### Definiere verwendete verwendete Programme #### 
-DIALOG=which dialog
-APTGET=which apt-get
-CP=which cp
+#DIALOG=which dialog
+#APTGET=which apt-get
+#CP=which cp
 
 #### Beginn der Schleife ####
 while true; do
 
 #### Die Variable "choice" wird definiert ####
-choice=`$DIALOG --menu \
+choice=`dialog --menu \
 	"Auswahl" 0 0 0 \
 	"Ubuntu Systemupdate" "" \
 	"Installation von tm-linux-server-installhelper" "" \
@@ -22,9 +22,9 @@ choice=`$DIALOG --menu \
 	"Einrichtung von Samba" "" \
 	"Einrichtung von iptables (Firewall)" "" \
 	"Dieses Menü beenden" "" 3>&1 1>&2 2>&3`
-	$DIALOG --clear
-	$DIALOG --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
-	$DIALOG --clear
+	dialog --clear
+	dialog --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
+	dialog --clear
 	clear
 
 #### Weiterverarbeitung der Variablen "choice" ####
