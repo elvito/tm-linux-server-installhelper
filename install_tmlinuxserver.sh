@@ -5,7 +5,7 @@
 #apt-get install git dialog
 
 #### Definiere verwendete verwendete Programme #### 
-DIALOG=which dialog
+DIALOG=dialog
 #APTGET=which apt-get
 #CP=which cp
 
