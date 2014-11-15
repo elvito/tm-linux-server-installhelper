@@ -4,7 +4,7 @@
 if [ -f ~/Downloads/TMLinux-Version*.zip ]
 	then
 		clear	
-		echo "Die Turbomedinstallationsdatei scheint vorhanden zu sein...fahre fort mit der Vorbereitung"
+		echo "Die Turbomedinstallationsdatei scheint vorhanden zu sein...fahre fort mit der Vorbereitung <ENTER>"
 		read -sn1
 
 		# Zusätzliche benötigte Pakete nachinstallieren
