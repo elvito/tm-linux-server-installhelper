@@ -5,7 +5,7 @@
 #apt-get install git dialog
 
 #### Definiere verwendete verwendete Programme #### 
-#DIALOG=which dialog
+DIALOG=which dialog
 #APTGET=which apt-get
 #CP=which cp
 
@@ -13,7 +13,7 @@
 while true; do
 
 #### Die Variable "choice" wird definiert ####
-choice=`dialog --menu \
+choice=`$DIALOG --menu \
 	"Auswahl" 0 0 0 \
 	"Ubuntu Systemupdate" "" \
 	"Installation von tm-linux-server-installhelper" "" \
@@ -22,9 +22,9 @@ choice=`dialog --menu \
 	"Einrichtung von Samba" "" \
 	"Einrichtung von iptables (Firewall)" "" \
 	"Dieses Menü beenden" "" 3>&1 1>&2 2>&3`
-	dialog --clear
-	dialog --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
-	dialog --clear
+	$DIALOG --clear
+	$DIALOG --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
+	$DIALOG --clear
 	clear
 
 #### Weiterverarbeitung der Variablen "choice" ####
@@ -32,10 +32,10 @@ case "$choice" in
 
 	"Ubuntu Systemupdate")
 	$DIALOG --clear
-	$APTGET update
-	$APTGET upgrade
-	$APTGET dist-upgrade
-	$APTGET autoremove
+	apt-get update
+	apt-get upgrade
+	apt-get dist-upgrade
+	apt-get autoremove
 	;;
 
 	"Installation von tm-linux-server-installhelper")
@@ -86,7 +86,7 @@ case "$choice" in
 			then
 				$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 5 40
 				sleep 5s
-				$CP -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
+				cp -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
 				chmod 644 /etc/samba/smb.conf
 				service samba restart
 				$DIALOG --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 5 40
