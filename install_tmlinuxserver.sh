@@ -6,8 +6,7 @@
 
 #### Definiere verwendete verwendete Programme #### 
 DIALOG=dialog
-#APTGET=which apt-get
-#CP=which cp
+APTGET=apt-get
 
 #### Beginn der Schleife ####
 while true; do
@@ -32,10 +31,10 @@ case "$choice" in
 
 	"Ubuntu Systemupdate")
 	$DIALOG --clear
-	apt-get update
-	apt-get upgrade
-	apt-get dist-upgrade
-	apt-get autoremove
+	APTGET update
+	APTGET upgrade
+	APTGET dist-upgrade
+	APTGET autoremove
 	;;
 
 	"Installation von tm-linux-server-installhelper")
