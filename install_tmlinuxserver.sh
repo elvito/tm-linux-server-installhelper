@@ -71,7 +71,7 @@ case "$choice" in
 	sleep 5s
 	#$DIALOG --clear
 	clear
-	/etc/init.d/poet status
+	/etc/init.d/poetd status
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken" 5 40
 	read -sn1	
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
