@@ -51,12 +51,12 @@ case "$choice" in
 		 		$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem synchronisieren" 5 40
 		 		sleep 5s
 		 		$DIALOG --clear
-		 		$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert"
+		 		$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 5 40
 		 		$DIALOG --clear
 		 		mkdir ~/tm-linux-server-scripte
 		 		cd ~/tm-linux-server-scripte
 		 		git clone git://github.com/elvito/tm-linux-server-installhelper.git .
-		 		$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 
+		 		$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 5 40
 				$DIALOG --clear	    	
 	    	fi
 	;;
@@ -73,7 +73,7 @@ case "$choice" in
 	$DIALOG --clear
 	clear
 	/etc/init.d/poet status
-	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken"
+	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken" 5 40
 	read -sn1	
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
 	$DIALOG --clear
@@ -102,13 +102,13 @@ case "$choice" in
 				$DIALOG --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 5 40
 				$DIALOG --clear
 			else
-				$DIALOG --msgbox "Installieren Sie zuerst tm-linux-server-installhelper"
+				$DIALOG --msgbox "Installieren Sie zuerst tm-linux-server-installhelper" 5 40
 				$DIALOG --clear
 		fi
 	;;
 
 	"Einrichtung von iptables (Firewall)")
-	$DIALOG --msgbox "Diese Option ist noch nicht implementiert"
+	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 5 40
 	$DIALOG --clear
 	;;
 
