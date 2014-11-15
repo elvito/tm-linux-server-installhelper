@@ -73,7 +73,7 @@ case "$choice" in
 	/etc/init.d/poetd start
 	clear
 	/etc/init.d/poetd status
-	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken" 5 40
+	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken"
 	read -sn1	
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
 	$DIALOG --clear
