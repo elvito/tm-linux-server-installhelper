@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #### Zunächst mal die absoluten Basics installieren ####
-apt-get update
-apt-get install git dialog
+#apt-get update
+#apt-get install git dialog
 
 #### Definiere verwendete verwendete Programme #### 
 DIALOG=which dialog
