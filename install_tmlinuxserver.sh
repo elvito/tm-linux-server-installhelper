@@ -70,6 +70,7 @@ case "$choice" in
 	#$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft beginnt in 5 Sekunden" 5 40
 	sleep 5s
 	#$DIALOG --clear
+	/etc/init.d/poetd start
 	clear
 	/etc/init.d/poetd status
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken" 5 40
