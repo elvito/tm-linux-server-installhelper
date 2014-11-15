@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #### Zunächst mal die absoluten Basics installieren ####
-#apt-get update
-#apt-get install git dialog
+apt-get update
+apt-get install git dialog
 
 #### Definiere verwendete verwendete Programme #### 
 DIALOG=dialog
@@ -32,10 +32,10 @@ case "$choice" in
 	"Ubuntu Systemupdate")
 	$DIALOG --clear
 	clear
-	APTGET update
-	APTGET upgrade
-	APTGET dist-upgrade
-	APTGET autoremove
+	$APTGET update
+	$APTGET upgrade
+	$APTGET dist-upgrade
+	$APTGET autoremove
 	;;
 
 	"Installation von tm-linux-server-installhelper")
