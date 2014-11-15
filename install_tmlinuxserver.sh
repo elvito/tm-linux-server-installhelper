@@ -81,8 +81,8 @@ case "$choice" in
 	"Vollständiges Entfernen von TM Linux Server")
 	$DIALOG --clear
 	clear
-	/opt/turbomed/TM_setup -rm
-	#rm -f /opt/FastObject* 
+	/opt/turbomed/linux/bin/TM_setup -rm
+	rm -f /opt/FastObjects* 
 	$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 5 40
 	$DIALOG --clear
 	clear
