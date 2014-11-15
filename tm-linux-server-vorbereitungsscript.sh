@@ -33,11 +33,5 @@ if [ -f ~/Downloads/TMLinux-Version*.zip ]
 		read -sn1
 		exit 1
 fi 
-
-
-echo "Der Rechner wird in 20 Sekunden neu gestartet"
-sleep 20s
-reboot 
-
 exit 0
 
