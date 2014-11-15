@@ -1,23 +1,28 @@
 tm-linux-server-installhelper
 =============================
 
-Hilfreiche Scripte zur Installation und Inbetriebnahme eines Turbomedservers unter *buntu Linux
+Ein graphisches Installationsprogramm zur Inbetriebnahme eines Turbomedservers unter *buntu Linux
+
+!!!!#### WICHTIG ####!!!!
+
+Das Programm ist momentan noch weit davon entfernt einen Turbomed Server für Linux für den Produktivbetrieb zur Verfügung zu stellen. Aktuell sind keinerlei Sicherheitsfeatures implementiert. Die Benutzung eines TM Servers der mit Hilfe dieses Programms installiert wurde erfolgt auf eigene Gefahr. Es wird ebenfalls dringend davon abgeraten dieses Programm auf einem laufenden Produktivsystem einzusetzen!!! 
+
+!!!!#### WICHTIG #####!!!!
 
 Voraussetzungen:
-Es muss ein OS von Canonical installiert (Ubuntu, Kubuntu, LXbuntu o.ä.) sein. Es spielt keine Rolle ob das OS physikalisch auf dem PC installiert ist oder in einer VM läuft. Es empfiehlt sich momentan die 64bit Desktopvariante von Ubuntu zu verwenden. Es muss eine gültige Lizenz für die Nutzung der AIS "Turbomed" der Firma CGM vorliegen. Der PC muss eine Verbindung ins Internet haben.
+- Es muss ein OS von Canonical installiert (Ubuntu, Kubuntu, LXbuntu o.ä.) sein 
+- Es spielt keine Rolle ob das OS physikalisch auf dem PC installiert ist oder in einer VM läuft. Es empfiehlt sich momentan die 64bit Desktopvariante von Ubuntu zu verwenden. 
+- Es muss eine gültige Lizenz für die Nutzung der AIS "Turbomed" der Firma CGM vorliegen
+- Der PC auf dem der Turbomedserver installiert wird, muss während der Installation eine Verbindung ins Internet haben
 
 Procedere:
 
-A) Automatisches Update von *buntu und Installation des TM Linux Server
-
-1. Die Datei tm-linux-server-vorbereitungsscript.sh herunterladen und im Ordner ~/Downloads speichern
-2. Von der CGM Homepage die aktuelle TM Linux Server Datei herunterladen und gezipped in ~/Downloads abspeichern
-3. Das Vorbereitungsscript "ausführbar" machen mit: "sudo chmod 755 ~/Downloads/[Name der vorhandenen TMLinux-Version-*.zip]"
-4. Aufruf des Vorbereitungsscripts mit: ~/Downloads/tm-linux-server-vorbereitungsscript.sh
-5. Die auftretenden Fragen können aktuell alle mit "j" beantwortet werden
-
-B) Konfiguration von Samba (Die aktuelle Version der angepassten smb.conf bietet noch keinerlei Sicherheit) 
-
-1. Machen Sie eine Sicherungskopie der ursprünglichen smb.conf --> "sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak"
-2. Überschreiben Sie die smb.conf mit der angepassten Version --> "sudo mv /[Pfad zur angepassten smb.conf]/smb.conf /etc/samba/
-3. Warten Sie mindestens 60 Sekunden oder starten Sie Samba von Hand neu, um die Änderungen sofort gültig zu machen --> "sudo service smbd restart" 
+1. Die Datei install_tmlinuxserver.sh herunterladen
+2. Eine Konsole/Terminal öffnen und in den Ordner in dem install_tmlinuxserver.sh liegt wechseln (z.B. cd ~/Downloads)
+3. Die Datei install_tmlinuxserver.sh mit chmod ausführbar machen, z.B. mit 
+   sudo chmod 755 ~/Downloads/install_tmlinuxserver.sh
+4. Von der CGM Homepage die aktuelle TM Linux Server Datei (TMLinux-Version-*.zip) herunterladen und unverändert im Ordner ~/Downloads speichern
+5. Das Programm starten z.B. --> sudo ~/Downloads/install_tmlinuxserver.sh
+6. Der weitere Ablauf ist selbsterklärend
+7. Es empfiehlt sich nach Abschluss aller gewünschten Optionen und Beendigung des Programms den PC neu zu starten
+8. Sollten Sie eine Virtualbox VM verwenden, vergessen Sie nicht nach einem Kernelupgrade die Gasterweiterungen erneut zu installieren und anschliessend die VM neu zu starten
