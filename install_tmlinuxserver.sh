@@ -64,8 +64,7 @@ case "$choice" in
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
-	cd ~/tm-linux-server-scripte
-	sudo ./tm-linux-server-vorbereitungsscript.sh 
+	~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
 	#$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
 	#$DIALOG --clear
 	#$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft beginnt in 5 Sekunden" 5 40
