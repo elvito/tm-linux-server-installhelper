@@ -108,7 +108,7 @@ case "$choice" in
 	;;
 
 	"Einrichtung von iptables (Firewall)")
-	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 5 40
+	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 0 40
 	$DIALOG --clear
 	;;
 
