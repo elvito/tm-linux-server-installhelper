@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DIALOG=dialog
+
 # Prüfung ob die TM.zip vorhanden ist
 if [ -f ~/Downloads/TMLinux-Version*.zip ]
 	then
