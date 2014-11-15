@@ -1,7 +1,8 @@
 #!/bin/bash
 #### Zunächst mal die Basics installieren ####
-#apt-get update
-#apt-get install git dialog
+apt-get update
+apt-get install git dialog
+while true; do
 #### Die Variable "choice" wird definiert ####
 choice=`dialog --menu \
 	"Auswahl" 0 0 0 \
@@ -17,7 +18,6 @@ choice=`dialog --menu \
 #	dialog --clear
 #	clear
 
-while true; do
 #### Weiterverarbeitung der Variablen "choice" ####
 case "$choice" in 
 
