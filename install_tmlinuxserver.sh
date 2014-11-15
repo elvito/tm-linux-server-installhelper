@@ -2,7 +2,6 @@
 #### Zunächst mal die Basics installieren ####
 #apt-get update
 #apt-get install git dialog
-while true; do
 #### Die Variable "choice" wird definiert ####
 choice=`dialog --menu "Auswahl" 0 0 0 \
 	"Ubuntu Systemupdate" ""\ 
@@ -17,6 +16,7 @@ choice=`dialog --menu "Auswahl" 0 0 0 \
 	dialog --clear
 	clear
 
+while true; do
 #### Weiterverarbeitung der Variablen "choice" ####
 case "$choice" in 
 
