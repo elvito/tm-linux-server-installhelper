@@ -21,8 +21,8 @@ choice=`$DIALOG --menu \
 	"Einrichtung von Samba" "" \
 	"Einrichtung von iptables (Firewall)" "" \
 	"Dieses Menü beenden" "" 3>&1 1>&2 2>&3`
-	$DIALOG --clear
-	$DIALOG --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
+#	$DIALOG --clear
+#	$DIALOG --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
 	$DIALOG --clear
 	clear
 
@@ -31,6 +31,7 @@ case "$choice" in
 
 	"Ubuntu Systemupdate")
 	$DIALOG --clear
+	clear
 	APTGET update
 	APTGET upgrade
 	APTGET dist-upgrade
@@ -51,10 +52,12 @@ case "$choice" in
 		 		sleep 5s
 		 		$DIALOG --clear
 		 		$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert"
+		 		$DIALOG --clear
 		 		mkdir ~/tm-linux-server-scripte
 		 		cd ~/tm-linux-server-scripte
 		 		git clone git://github.com/elvito/tm-linux-server-installhelper.git .
 		 		$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 
+				$DIALOG --clear	    	
 	    	fi
 	;;
 
@@ -63,6 +66,7 @@ case "$choice" in
 	cd ~/tm-linux-server-scripte
 	./tm-linux-server-vorbereitungsscript.sh
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
+	$DIALOG --clear
 	$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft beginnt in 5 Sekunden" 5 40
 	sleep 5s
 	$DIALOG --clear
@@ -71,13 +75,17 @@ case "$choice" in
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken"
 	read -sn1	
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
+	$DIALOG --clear
 	;;
 
 	"Vollständiges Entfernen von TM Linux Server")
+	$DIALOG --clear
+	clear
 	/opt/turbomed/TM_setup -rm
 	#rm -f /opt/FastObject* 
 	$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 5 40
 	$DIALOG --clear
+	clear
 	;;
 
 	"Einrichtung von Samba")
@@ -85,6 +93,8 @@ case "$choice" in
 			then
 				$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 5 40
 				sleep 5s
+				$DIALOG --clear
+				clear
 				cp -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
 				chmod 644 /etc/samba/smb.conf
 				service samba restart
@@ -98,7 +108,7 @@ case "$choice" in
 
 	"Einrichtung von iptables (Firewall)")
 	$DIALOG --msgbox "Diese Option ist noch nicht implementiert"
-	#$DIALOG --clear
+	$DIALOG --clear
 	;;
 
 	"Dieses Menü beenden")
