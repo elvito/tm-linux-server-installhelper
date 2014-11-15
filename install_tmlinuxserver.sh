@@ -13,14 +13,14 @@ CP=which cp
 while true; do
 
 #### Die Variable "choice" wird definiert ####
-choice=`$DIALOG --menu \
-	"Auswahl" 0 0 0 \
-	"Ubuntu Systemupdate" "" \
-	"Installation von tm-linux-server-installhelper" "" \
+choice=`$DIALOG --menu\
+	"Auswahl" 0 0 0\
+	"Ubuntu Systemupdate" ""\
+	"Installation von tm-linux-server-installhelper" ""\
 	"Installation von TM Linux Server" ""\
-	"Vollständiges Entfernen von TM Linux Server" "" \
-	"Einrichtung von Samba" "" \
-	"Einrichtung von iptables (Firewall)" "" \
+	"Vollständiges Entfernen von TM Linux Server" ""\
+	"Einrichtung von Samba" ""\
+	"Einrichtung von iptables (Firewall)" ""\
 	"Dieses Menü beenden" "" 3>&1 1>&2 2>&3`
 	$DIALOG --clear
 	$DIALOG --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
