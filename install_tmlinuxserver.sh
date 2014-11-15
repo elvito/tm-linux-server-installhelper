@@ -3,18 +3,19 @@
 #apt-get update
 #apt-get install git dialog
 #### Die Variable "choice" wird definiert ####
-choice=`dialog --menu "Auswahl" 0 0 0 \
-	"Ubuntu Systemupdate" ""\ 
-	"Installation von tm-linux-server-installhelper" ""\ 
-	"Installation von TM Linux Server" ""\ 
-	"Vollständiges Entfernen von TM Linux Server" ""\  
-	"Einrichtung von Samba" ""\ 
-	"Einrichtung von iptables (Firewall)" ""\ 
+choice=`dialog --menu \
+	"Auswahl" 0 0 0 \
+	"Ubuntu Systemupdate" "" \
+	"Installation von tm-linux-server-installhelper" "" \
+	"Installation von TM Linux Server" ""\
+	"Vollständiges Entfernen von TM Linux Server" "" \
+	"Einrichtung von Samba" "" \
+	"Einrichtung von iptables (Firewall)" "" \
 	"Dieses Menü beenden" "" 3>&1 1>&2 2>&3`
- 	dialog --clear
-	dialog --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0 
-	dialog --clear
-	clear
+#	dialog --clear
+# 	dialog --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0 
+#	dialog --clear
+#	clear
 
 while true; do
 #### Weiterverarbeitung der Variablen "choice" ####
@@ -92,7 +93,7 @@ case "$choice" in
 			
    "Einrichtung von iptables (Firewall)")
       dialog --msgbox "Diese Option ist noch nicht implementiert"
-      dialog --clear
+#      dialog --clear
    ;;
    
    "Dieses Menü beenden")
