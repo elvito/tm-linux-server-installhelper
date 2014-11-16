@@ -55,9 +55,9 @@ case "$choice" in
 		 		sleep 5s
 		 		$DIALOG --clear
 		 		cd ~/tm-linux-server-scripte
-		 		git clone git://github.com/elvito/tm-linux-server-installhelper.git .
+		 		git pull https://github.com/elvito/tm-linux-server-installhelper.git master
 			else
-		 		$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem synchronisieren" 0 0
+		 		$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem Clonen des Repository" 0 0
 		 		sleep 5s
 		 		$DIALOG --clear
 		 		$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 0 0
