@@ -1,9 +1,0 @@
-[TM-Ordner]
-path = /opt/turbomed
-guest ok = yes
-writeable = yes
-browseable = yes
-create mask = 0777
-directory mask = 0777
-force user = nobody
-force group = nogroup
