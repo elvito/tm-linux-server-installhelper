@@ -91,18 +91,21 @@ case "$choice" in
 	$DIALOG --clear
 	clear
 	sudo bash ~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
-	#$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
-	#$DIALOG --clear
-	#$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft beginnt in 5 Sekunden" 5 40
-	sleep 5s
-	#$DIALOG --clear
+	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
+	$DIALOG --clear
+	$DIALOG --msgbox "Überprüfung ob der FastObjectServer läuft" 0 0
+	$DIALOG --clear
+	clear
 	/etc/init.d/poetd start
+	sleep 5s
 	clear
 	/etc/init.d/poetd status
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken"
 	read -sn1	
+	clear
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
 	$DIALOG --clear
+	clear
 	;;
 
 	"Vollständiges Entfernen von TM Linux Server")
@@ -110,7 +113,7 @@ case "$choice" in
 	clear
 	/opt/turbomed/linux/bin/TM_setup -rm
 	rm -rf /opt/FastObjects* 
-	$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
+	$DIALOG --msgbox "Löschen von TM Linux Server abgeschlossen" 0 0
 	$DIALOG --clear
 	clear
 	;;
@@ -119,7 +122,6 @@ case "$choice" in
 		if [ -d ~/tm-linux-server-scripte/ ]
 			then
 				$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 0 0
-				sleep 5s
 				$DIALOG --clear
 				clear
 				cp -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
@@ -127,15 +129,18 @@ case "$choice" in
 				service samba restart
 				$DIALOG --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 0 0
 				$DIALOG --clear
+				clear
 			else
 				$DIALOG --msgbox "Installieren Sie zuerst tm-linux-server-installhelper" 0 0
 				$DIALOG --clear
+				clear
 		fi
 	;;
 
 	"Einrichtung von iptables (Firewall)")
 	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 0 0
 	$DIALOG --clear
+	clear
 	;;
 
 	"Dieses Menü beenden")
