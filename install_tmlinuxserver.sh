@@ -2,11 +2,11 @@
 
 #### Sind wir root? ####
 if [ "$(whoami)" != "root" ];
-then
-   echo "Sie sind nicht root!"
-   echo "Starten Sie das Programm mit sudo"
-   echo "Das Programm wird jetzt beendet!"
-   exit 1
+	then
+		echo "Sie sind nicht root!"
+		echo "Starten Sie das Programm mit sudo"
+		echo "Das Programm wird jetzt beendet!"
+		exit 1
 fi
 
 #### Zunächst mal die absoluten Basics installieren ####
@@ -51,22 +51,22 @@ case "$choice" in
 		if [ -d ~/tm-linux-server-scripte ]
 			then
 				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden...\n\nBeginne mit dem synchronisieren" 0 0
-		 		sleep 5s
-		 		$DIALOG --clear
-		 		cd ~/tm-linux-server-scripte
-		 		git pull https://github.com/elvito/tm-linux-server-installhelper.git master
+				sleep 5s
+				$DIALOG --clear
+				cd ~/tm-linux-server-scripte
+				git pull https://github.com/elvito/tm-linux-server-installhelper.git master
 			else
-		 		$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem Clonen des Repository" 0 0
-		 		sleep 5s
-		 		$DIALOG --clear
-		 		$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 0 0
-		 		$DIALOG --clear
-		 		mkdir ~/tm-linux-server-scripte
-		 		cd ~/tm-linux-server-scripte
-		 		git clone git://github.com/elvito/tm-linux-server-installhelper.git .
-		 		$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 0 0
+				$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem Clonen des Repository" 0 0
+				sleep 5s
+				$DIALOG --clear
+				$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 0 0
+				$DIALOG --clear
+				mkdir ~/tm-linux-server-scripte
+				cd ~/tm-linux-server-scripte
+				git clone git://github.com/elvito/tm-linux-server-installhelper.git .
+				$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 0 0
 				$DIALOG --clear	    	
-	    	fi
+		fi
 	;;
 	
 	"Vollstandiges Entfernen von tm-linux-server-installhelper")
@@ -88,34 +88,17 @@ case "$choice" in
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
-<<<<<<< HEAD
 	~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
-	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
-	$DIALOG --clear
-	$DIALOG --msgbox "Überprüfung ob der FastObjectServer läuft" 0 0
-	$DIALOG --clear
-	clear
-	/etc/init.d/poetd start
-	sleep 5s
-=======
-	sudo bash ~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
 	$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft..." 0 0
 	sleep 3s
 	$DIALOG --clear
 	clear
 	/etc/init.d/poetd start
 	sleep 2s
->>>>>>> master
 	clear
 	/etc/init.d/poetd status
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken"
-	read -sn1	
-<<<<<<< HEAD
-	clear
-	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
-	$DIALOG --clear
-	clear
-=======
+	read -sn1
 		if [ -d /opt/turbomed ]
 			then
 				$DIALOG --msgbox "Die Installation von Turbomed Linux Server war erfolgreich :)" 0 0
@@ -127,19 +110,11 @@ case "$choice" in
 				$DIALOG --clear
 				clear
 		fi
->>>>>>> master
 	;;
 
 	"Vollständiges Entfernen von TM Linux Server")
 	$DIALOG --clear
 	clear
-<<<<<<< HEAD
-	/opt/turbomed/linux/bin/TM_setup -rm
-	rm -rf /opt/FastObjects* 
-	$DIALOG --msgbox "Löschen von TM Linux Server abgeschlossen" 0 0
-	$DIALOG --clear
-	clear
-=======
 		if [ -d /opt/turbomed ]
 			then
 				/opt/turbomed/linux/bin/TM_setup -rm
@@ -152,7 +127,6 @@ case "$choice" in
 				$DIALOG --clear
 				clear
 		fi
->>>>>>> master
 	;;
 
 	"Einrichtung von Samba")
