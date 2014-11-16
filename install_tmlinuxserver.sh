@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# nicht vergessen vor dem mergen den branch zu ändern!!!!
 #### Sind wir root? ####
 if [ "$(whoami)" != "root" ];
 	then
