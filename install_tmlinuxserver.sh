@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#### Sind wir root? ####
+if [ "$(whoami)" != "root" ];
+then
+   echo "Sie sind nicht root!"
+   echo "Starten Sie das Programm mit sudo"
+   echo "Das Programm wird jetzt beendet!"
+   exit
+fi
+
 #### Zunächst mal die absoluten Basics installieren ####
 apt-get update
 apt-get install git dialog
