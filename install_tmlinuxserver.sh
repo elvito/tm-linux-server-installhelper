@@ -51,7 +51,7 @@ case "$choice" in
 	$DIALOG --clear
 		if [ -d ~/tm-linux-server-scripte ]
 			then
-				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden... Beginne mit dem synchronisieren" 0 0
+				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden...\n\nBeginne mit dem synchronisieren" 0 0
 		 		sleep 5s
 		 		$DIALOG --clear
 		 		cd ~/tm-linux-server-scripte
@@ -91,11 +91,17 @@ case "$choice" in
 	"Vollständiges Entfernen von TM Linux Server")
 	$DIALOG --clear
 	clear
-	/opt/turbomed/linux/bin/TM_setup -rm
-	rm -rf /opt/FastObjects* 
-	$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
-	$DIALOG --clear
-	clear
+		if [ -d ~/opt/turbomed ]
+			then
+				/opt/turbomed/linux/bin/TM_setup -rm
+				rm -rf /opt/FastObjects* 
+				$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
+				$DIALOG --clear
+				clear
+			else
+				$DIALOG --msgbox "Turbomed Linux Server ist nicht installiert"
+				$DIALOG --clear
+				clear
 	;;
 
 	"Einrichtung von Samba")
