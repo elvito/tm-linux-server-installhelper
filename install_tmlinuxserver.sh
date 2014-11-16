@@ -51,21 +51,21 @@ case "$choice" in
 	$DIALOG --clear
 		if [ -d ~/tm-linux-server-scripte ]
 			then
-				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden... Beginne mit dem synchronisieren" 5 40
+				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden... Beginne mit dem synchronisieren" 0 0
 		 		sleep 5s
 		 		$DIALOG --clear
 		 		cd ~/tm-linux-server-scripte
 		 		git clone git://github.com/elvito/tm-linux-server-installhelper.git .
 			else
-		 		$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem synchronisieren" 5 40
+		 		$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem synchronisieren" 0 0
 		 		sleep 5s
 		 		$DIALOG --clear
-		 		$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 5 40
+		 		$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 0 0
 		 		$DIALOG --clear
 		 		mkdir ~/tm-linux-server-scripte
 		 		cd ~/tm-linux-server-scripte
 		 		git clone git://github.com/elvito/tm-linux-server-installhelper.git .
-		 		$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 5 40
+		 		$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 0 0
 				$DIALOG --clear	    	
 	    	fi
 	;;
@@ -84,7 +84,7 @@ case "$choice" in
 	/etc/init.d/poetd status
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken"
 	read -sn1	
-	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 5 40
+	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
 	$DIALOG --clear
 	;;
 
@@ -93,7 +93,7 @@ case "$choice" in
 	clear
 	/opt/turbomed/linux/bin/TM_setup -rm
 	rm -rf /opt/FastObjects* 
-	$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 5 40
+	$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
 	$DIALOG --clear
 	clear
 	;;
@@ -101,23 +101,23 @@ case "$choice" in
 	"Einrichtung von Samba")
 		if [ -d ~/tm-linux-server-scripte/ ]
 			then
-				$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 5 40
+				$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 0 0
 				sleep 5s
 				$DIALOG --clear
 				clear
 				cp -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
 				chmod 644 /etc/samba/smb.conf
 				service samba restart
-				$DIALOG --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 5 40
+				$DIALOG --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 0 0
 				$DIALOG --clear
 			else
-				$DIALOG --msgbox "Installieren Sie zuerst tm-linux-server-installhelper" 5 40
+				$DIALOG --msgbox "Installieren Sie zuerst tm-linux-server-installhelper" 0 0
 				$DIALOG --clear
 		fi
 	;;
 
 	"Einrichtung von iptables (Firewall)")
-	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 5 60
+	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 0 0
 	$DIALOG --clear
 	;;
 
