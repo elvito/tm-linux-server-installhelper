@@ -71,7 +71,7 @@ case "$choice" in
 	    	fi
 	;;
 	
-	"Vollstandiges Entfernen von tm-linux-server-installhelper"
+	"Vollstandiges Entfernen von tm-linux-server-installhelper")
 	$DIALOG --clear
 		if [ -d ~/tm-linux-server-scripte ]
 			then
