@@ -31,8 +31,6 @@ choice=`$DIALOG --menu \
 	"Einrichtung von Samba" "" \
 	"Einrichtung von iptables (Firewall)" "" \
 	"Dieses Menü beenden" "" 3>&1 1>&2 2>&3`
-#	$DIALOG --clear
-#	$DIALOG --yesno "Bestätigen Sie Ihre Auswahl: $choice" 0 0
 	$DIALOG --clear
 	clear
 
@@ -52,7 +50,7 @@ case "$choice" in
 	$DIALOG --clear
 		if [ -d ~/tm-linux-server-scripte ]
 			then
-				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden... Beginne mit dem synchronisieren" 0 0
+				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden...\n\nBeginne mit dem synchronisieren" 0 0
 		 		sleep 5s
 		 		$DIALOG --clear
 		 		cd ~/tm-linux-server-scripte
@@ -90,6 +88,7 @@ case "$choice" in
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
+<<<<<<< HEAD
 	~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
 	$DIALOG --clear
@@ -98,24 +97,62 @@ case "$choice" in
 	clear
 	/etc/init.d/poetd start
 	sleep 5s
+=======
+	sudo bash ~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
+	$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft..." 0 0
+	sleep 3s
+	$DIALOG --clear
+	clear
+	/etc/init.d/poetd start
+	sleep 2s
+>>>>>>> master
 	clear
 	/etc/init.d/poetd status
 	echo -e "\n\nSie sollten eine PID und \"running\" sehen\nBitte eine beliebige Taste drücken"
 	read -sn1	
+<<<<<<< HEAD
 	clear
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
 	$DIALOG --clear
 	clear
+=======
+		if [ -d /opt/turbomed ]
+			then
+				$DIALOG --msgbox "Die Installation von Turbomed Linux Server war erfolgreich :)" 0 0
+				$DIALOG --clear
+				clear
+			else
+				$DIALOG --msgbox "Irgendwas ist schief gelaufen..." 0 0
+				$DIALOG --msgbox "Melden Sie sich mit einer Fehlerbeschreibung im Forum" 0 0
+				$DIALOG --clear
+				clear
+		fi
+>>>>>>> master
 	;;
 
 	"Vollständiges Entfernen von TM Linux Server")
 	$DIALOG --clear
 	clear
+<<<<<<< HEAD
 	/opt/turbomed/linux/bin/TM_setup -rm
 	rm -rf /opt/FastObjects* 
 	$DIALOG --msgbox "Löschen von TM Linux Server abgeschlossen" 0 0
 	$DIALOG --clear
 	clear
+=======
+		if [ -d /opt/turbomed ]
+			then
+				/opt/turbomed/linux/bin/TM_setup -rm
+				rm -rf /opt/FastObjects* 
+				$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
+				$DIALOG --clear
+				clear
+			else
+				$DIALOG --msgbox "Turbomed Linux Server ist nicht installiert"
+				$DIALOG --clear
+				clear
+		fi
+>>>>>>> master
 	;;
 
 	"Einrichtung von Samba")
