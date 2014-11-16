@@ -25,6 +25,7 @@ choice=`$DIALOG --menu \
 	"Auswahl" 0 0 0 \
 	"Ubuntu Systemupdate" "" \
 	"Installation von tm-linux-server-installhelper" "" \
+	"Vollstandiges Entfernen von tm-linux-server-installhelper" "" \
 	"Installation von TM Linux Server" "" \
 	"Vollständiges Entfernen von TM Linux Server" "" \
 	"Einrichtung von Samba" "" \
@@ -69,7 +70,23 @@ case "$choice" in
 				$DIALOG --clear	    	
 	    	fi
 	;;
-
+	
+	"Vollstandiges Entfernen von tm-linux-server-installhelper"
+	$DIALOG --clear
+		if [ -d ~/tm-linux-server-scripte ]
+			then
+				$DIALOG --infobox "tm-linux-server-installhelper wird entfernt" 0 0
+		 		sleep 5s
+		 		$DIALOG --clear
+		 		rm -rf ~/tm-linux-server-scripte
+				$DIALOG --msgbox "tm-linux-server-installhelper wurde entfernt" 0 0
+			else
+				$DIALOG --msgbox "tm-linux-server-installhelper ist nicht installiert" 0 0
+				$DIALOG --clear
+				clear
+		fi
+	;;
+	
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
