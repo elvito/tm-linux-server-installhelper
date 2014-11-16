@@ -63,7 +63,7 @@ case "$choice" in
 				$DIALOG --clear
 				mkdir ~/tm-linux-server-scripte
 				cd ~/tm-linux-server-scripte
-				git clone git://github.com/elvito/tm-linux-server-installhelper.git .
+				git clone git://github.com/elvito/tm-linux-server-installhelper.git testing
 				$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 0 0
 				$DIALOG --clear	    	
 		fi
