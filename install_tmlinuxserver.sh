@@ -90,7 +90,7 @@ case "$choice" in
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
-	sudo bash ~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
+	~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
 	$DIALOG --msgbox "Der TM Linux Server wurde installiert :)" 0 0
 	$DIALOG --clear
 	$DIALOG --msgbox "Überprüfung ob der FastObjectServer läuft" 0 0
