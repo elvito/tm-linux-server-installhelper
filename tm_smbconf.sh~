@@ -1,0 +1,16 @@
+if [ -d ~/tm-linux-server-scripte/ ]
+			then
+				$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 0 0
+				$DIALOG --clear
+				clear
+				cp -b ~/tm-linux-server-scripte/smb.conf /etc/samba/
+				chmod 644 /etc/samba/smb.conf
+				service samba restart
+				$DIALOG --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 0 0
+				$DIALOG --clear
+				clear
+			else
+				$DIALOG --msgbox "Installieren Sie zuerst tm-linux-server-installhelper" 0 0
+				$DIALOG --clear
+				clear
+		fi
