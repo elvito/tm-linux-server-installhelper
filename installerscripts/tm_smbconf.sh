@@ -2,6 +2,8 @@
 #### wird automatisch aufgerufen von install_tmlinuxserver.sh
 #### Dieses Script nur manuell aufrufen wenn Sie wissen was Sie tun!
 
+DIALOG=dialog
+
 if [ -d ~/tm-linux-server-scripte/ ]
 	then
 		$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 0 0
