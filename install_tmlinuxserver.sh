@@ -54,16 +54,18 @@ case "$choice" in
 				sleep 5s
 				$DIALOG --clear
 				cd ~/tm-linux-server-scripte
-				git pull https://github.com/elvito/tm-linux-server-installhelper.git testing
+				git checkout testing
+				git pull https://github.com/elvito/tm-linux-server-installhelper.git
 			else
 				$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem Clonen des Repository" 0 0
 				sleep 5s
 				$DIALOG --clear
 				$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 0 0
 				$DIALOG --clear
-				mkdir ~/tm-linux-server-scripte
+				git clone git://github.com/elvito/tm-linux-server-installhelper.git ~/tm-linux-server-scripte
 				cd ~/tm-linux-server-scripte
-				git clone git://github.com/elvito/tm-linux-server-installhelper.git testing
+				git checkout testing
+				git pull https://github.com/elvito/tm-linux-server-installhelper.git
 				$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 0 0
 				$DIALOG --clear	    	
 		fi
@@ -88,7 +90,7 @@ case "$choice" in
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
-	~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
+	bash ~/tm-linux-server-scripte/tm-linux-server-vorbereitungsscript.sh 
 	$DIALOG --infobox "Überprüfung ob der FastObjectServer läuft..." 0 0
 	sleep 3s
 	$DIALOG --clear
