@@ -6,8 +6,8 @@ DIALOG=dialog
 if [ -d /opt/turbomed ]
 	then
 		#Zurück zum Installer
-		$DIALOG --msgbox "Turbomed ist bereits installiert!"
-		$DIALOG --msgbox "Löschen Sie zuerst die alte Installation"
+		$DIALOG --msgbox "Turbomed ist bereits installiert!" 0 0
+		$DIALOG --msgbox "Löschen Sie zuerst die alte Installation" 0 0
 		exit 0
 	else
 		# Bedingungen prüfen
