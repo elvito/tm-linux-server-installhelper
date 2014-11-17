@@ -115,7 +115,7 @@ case "$choice" in
 	bash ~/tm-linux-server-scripte/installerscripts/tm-linux-server-vorbereitungsscript.sh 
 	;;
 
-	# Aufruf von TM_setup -rm und löschen des FastObject Verzeichnisses aus /opt
+	# Aufruf von TM_setup -rm und löschen des FastObject Verzeichnisses aus /opt und ~/Downloads/TMWin
 	"Vollständiges Entfernen von TM Linux Server")
 	$DIALOG --clear
 	clear
@@ -123,6 +123,7 @@ case "$choice" in
 			then
 				/opt/turbomed/linux/bin/TM_setup -rm
 				rm -rf /opt/FastObjects* 
+				rm -rf ~/Doanloads/TMWin 
 				$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
 				$DIALOG --clear
 				clear
