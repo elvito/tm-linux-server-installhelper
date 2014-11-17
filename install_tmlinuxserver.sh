@@ -1,6 +1,10 @@
 #!/bin/bash
 # nicht vergessen vor dem mergen den branch zu ändern!!!!
 
+# Logging aktivieren
+exec > >(tee ./install_tmlinuxserver.log)
+exec 2>&1
+
 #### Sind wir root? ####
 if [ "$(whoami)" != "root" ];
 	then
@@ -124,7 +128,7 @@ case "$choice" in
 				/opt/turbomed/linux/bin/TM_setup -rm
 				rm -rf /opt/FastObjects* 
 				rm -rf ~/Downloads/TMWin 
-				$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
+				$DIALOG --msgbox "Löschen von TM Linux Server abgeschlossen" 0 0
 				$DIALOG --clear
 				clear
 			else
