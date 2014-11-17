@@ -123,7 +123,7 @@ case "$choice" in
 			then
 				/opt/turbomed/linux/bin/TM_setup -rm
 				rm -rf /opt/FastObjects* 
-				rm -rf ~/Doanloads/TMWin 
+				rm -rf ~/Downloads/TMWin 
 				$DIALOG --infobox "Löschen von TM Linux Server abgeschlossen" 0 0
 				$DIALOG --clear
 				clear
