@@ -2,8 +2,8 @@
 # nicht vergessen vor dem mergen den branch zu ändern!!!!
 
 # Logging aktivieren
-exec > >(tee ./install_tmlinuxserver.log)
-exec 2>&1
+# exec > >(tee ./install_tmlinuxserver.log)
+# exec 2>&1
 
 #### Sind wir root? ####
 if [ "$(whoami)" != "root" ];
