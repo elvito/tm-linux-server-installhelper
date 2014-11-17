@@ -135,7 +135,7 @@ case "$choice" in
 	
 	# Aufruf von tm_smbconf.sh
 	"Einrichtung von Samba")
-	bash ~/tm-linux-server-scripte/tm_smbconf.sh
+	bash ~/tm-linux-server-scripte/installerscripts/tm_smbconf.sh
 	;;
 
 	# Aufruf von tm_iptablesconf.sh
