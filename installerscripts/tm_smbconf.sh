@@ -18,7 +18,9 @@ if [ -d ~/tm-linux-server-scripte/ ]
 		echo "Eine beliebige Taste drücken um fortzufahren"
 		read -sn1
 		$DIALOG --msgbox "Melden Sie sich bei Fehlermeldungen mit der exakten Fehlerausgabe im Forum" 0 0
-		service samba restart
+		$DIALOG --msgbox "Samba wird nun neu gestartet" 0 0
+		service smbd restart
+		service nmbd restart
 		$DIALOG --infobox "Einrichtung des angepassten smb.conf abgeschlossen, Samba wurde neu gestartet" 0 0
 		$DIALOG --clear
 		clear
