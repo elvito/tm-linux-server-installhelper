@@ -31,7 +31,7 @@ fi
 
 #### Zunächst mal die absoluten Basics installieren ####
 apt-get update
-apt-get install git dialog
+apt-get install dialog openssh-server build-essential dkms unzip samba
 
 #### Definiere verwendete verwendete Programme #### 
 DIALOG=dialog
@@ -44,7 +44,7 @@ while true; do
 choice=`$DIALOG --menu \
 	"Auswahl" 0 0 0 \
 	"Ubuntu Systemupdate" "" \
-	"Vollstandiges Entfernen von tm-linux-server-installhelper" "" \
+	"Vollständiges Entfernen von tm-linux-server-installhelper" "" \
 	"Installation von TM Linux Server" "" \
 	"Vollständiges Entfernen von TM Linux Server" "" \
 	"Einrichtung von Samba" "" \
@@ -69,8 +69,9 @@ case "$choice" in
 	;;
 
 	# Löschen aller Scripte
-	"Vollstandiges Entfernen von tm-linux-server-installhelper")
+	"Vollständiges Entfernen von tm-linux-server-installhelper")
 	$DIALOG --clear
+	clear
 		if [ -d ~/tm-linux-server-installhelper* ]
 			then
 				$DIALOG --infobox "tm-linux-server-installhelper wird entfernt" 0 0
@@ -89,7 +90,7 @@ case "$choice" in
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
-	bash ~/tm-linux-server-scripte/installerscripts/tm-linux-server-vorbereitungsscript.sh 
+	bash ~/tm-linux-server-installhelper-testing/installerscripts/tm-linux-server-vorbereitungsscript.sh 
 	;;
 
 	# Aufruf von TM_setup -rm und löschen des FastObject Verzeichnisses aus /opt und ~/Downloads/TMWin
@@ -105,7 +106,7 @@ case "$choice" in
 				$DIALOG --clear
 				clear
 			else
-				$DIALOG --msgbox "Turbomed Linux Server ist nicht installiert"
+				$DIALOG --msgbox "Turbomed Linux Server ist nicht installiert" 0 0
 				$DIALOG --clear
 				clear
 		fi
@@ -113,7 +114,7 @@ case "$choice" in
 	
 	# Aufruf von tm_smbconf.sh
 	"Einrichtung von Samba")
-	bash ~/tm-linux-server-scripte/installerscripts/tm_smbconf.sh
+	bash ~/tm-linux-server-installhelper-testing/installerscripts/tm_smbconf.sh
 	;;
 
 	# Aufruf von tm_iptablesconf.sh
