@@ -44,6 +44,7 @@ case "$choice" in
 		else
 			$DIALOG --msgbox "Der Ordner ~/Downloads ist noch nicht vorhanden und wird jetzt angelegt" 0 0
 			mkdir ~/Downloads
+			chmod 777 ~/Downloads
 			$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 0 0
 			$DIALOG --clear
 			clear
