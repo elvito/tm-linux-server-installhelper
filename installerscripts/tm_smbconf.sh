@@ -4,12 +4,12 @@
 
 DIALOG=dialog
 
-if [ -d ~/tm-linux-server-scripte/ ]
+if [ -d ~/tm-linux-server-installhelper-testing/ ]
 	then
 		$DIALOG --msgbox "Installiere die angepasste smb.conf und starte anschließend Samba neu" 0 0
 		$DIALOG --clear
 		clear
-		cp -b ~/tm-linux-server-scripte/conf/smb.conf /etc/samba/
+		cp -b ~/tm-linux-server-installhelper-testing/conf/smb.conf /etc/samba/
 		chmod 644 /etc/samba/smb.conf
 		$DIALOG --msgbox "Überprüfen Sie die Ausgabe von testparm" 0 0
 		$DIALOG --clear
