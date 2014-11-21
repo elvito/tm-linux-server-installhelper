@@ -43,11 +43,13 @@ while true; do
 choice=`$DIALOG --menu \
 	"Auswahl" 0 0 0 \
 	"Ubuntu Systemupdate" "" \
-	"Vollständiges Entfernen von tm-linux-server-installhelper" "" \
-	"Installation von TM Linux Server" "" \
-	"Vollständiges Entfernen von TM Linux Server" "" \
 	"Einrichtung von Samba" "" \
+	"Installation von TM Linux Server" "" \
 	"Einrichtung von iptables (Firewall)" "" \
+	"Rebooten" "" \
+	"Den Rechner herunterfahren" "" \
+	"Vollständiges Entfernen von TM Linux Server" "" \
+	"Vollständiges Entfernen von tm-linux-server-installhelper" "" \
 	"Dieses Programm beenden" "" 3>&1 1>&2 2>&3`
 	$DIALOG --clear
 	clear
@@ -67,22 +69,9 @@ case "$choice" in
 	$DIALOG --msgbox "Führen Sie anschließend erneut \"sudo install_tmlinuxserver.sh\" aus" 0 0
 	;;
 
-	# Löschen aller Scripte
-	"Vollständiges Entfernen von tm-linux-server-installhelper")
-	$DIALOG --clear
-	clear
-		if [ -d ~/tm-linux-server-installhelper* ]
-			then
-				$DIALOG --infobox "tm-linux-server-installhelper wird entfernt" 0 0
-		 		sleep 5s
-		 		$DIALOG --clear
-		 		rm -rf ~/tm-linux-server-installhelper*
-				$DIALOG --msgbox "tm-linux-server-installhelper wurde entfernt" 0 0
-			else
-				$DIALOG --msgbox "tm-linux-server-installhelper ist noch nicht installiert" 0 0
-				$DIALOG --clear
-				clear
-		fi
+	# Aufruf von tm_smbconf.sh
+	"Einrichtung von Samba")
+	bash ~/tm-linux-server-installhelper/installerscripts/tm_smbconf.sh
 	;;
 	
 	# Aufruf des Vorbereitungsscripts
@@ -90,6 +79,23 @@ case "$choice" in
 	$DIALOG --clear
 	clear
 	bash ~/tm-linux-server-installhelper/installerscripts/tm-linux-server-vorbereitungsscript.sh 
+	;;
+
+	# Aufruf von tm_iptablesconf.sh
+	"Einrichtung von iptables (Firewall)")
+	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 0 0
+	$DIALOG --clear
+	clear
+	;;
+
+	# Reboot
+	"Rebooten")
+	reboot
+	;;
+
+	# Reboot
+	"Den Rechner herunterfahren")
+	shutdown -h now
 	;;
 
 	# Aufruf von TM_setup -rm und löschen des FastObject Verzeichnisses aus /opt und ~/Downloads/TMWin
@@ -110,17 +116,24 @@ case "$choice" in
 				clear
 		fi
 	;;
-	
-	# Aufruf von tm_smbconf.sh
-	"Einrichtung von Samba")
-	bash ~/tm-linux-server-installhelper/installerscripts/tm_smbconf.sh
-	;;
 
-	# Aufruf von tm_iptablesconf.sh
-	"Einrichtung von iptables (Firewall)")
-	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 0 0
+
+	# Löschen aller Scripte
+	"Vollständiges Entfernen von tm-linux-server-installhelper")
 	$DIALOG --clear
 	clear
+		if [ -d ~/tm-linux-server-installhelper* ]
+			then
+				$DIALOG --infobox "tm-linux-server-installhelper wird entfernt" 0 0
+		 		sleep 5s
+		 		$DIALOG --clear
+		 		rm -rf ~/tm-linux-server-installhelper*
+				$DIALOG --msgbox "tm-linux-server-installhelper wurde entfernt" 0 0
+			else
+				$DIALOG --msgbox "tm-linux-server-installhelper ist noch nicht installiert" 0 0
+				$DIALOG --clear
+				clear
+		fi
 	;;
 	
 	# Ende
