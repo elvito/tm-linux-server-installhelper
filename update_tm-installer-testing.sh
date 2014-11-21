@@ -1,8 +1,8 @@
 #!/bin/bash
 # alten Installer löschen
-if [ -f ~/install_tmlinuxserver.sh ]
+if [ -f ~/tm-linux-server-installhelper-testing/install_tmlinuxserver.sh ]
 	then
-		rm -f ~/install_tmlinuxserver.sh
+		rm -rf ~/tm-linux-server-installhelper-testing
 		clear
 		echo "Der alte Installer wurde entfernt, bitte beliebige Taste drücken um fortzufahren"
 		read -sn1
@@ -11,18 +11,21 @@ if [ -f ~/install_tmlinuxserver.sh ]
 		echo "Kein alter Installer gefunden, fahre in 5 Sekunden fort mit dem Update"
 		sleep 5s
 fi
+
 # Herunterladen
-wget -P /tmp/testing -c https://github.com/elvito/tm-linux-server-installhelper/archive/testing.zip
+wget -P /tmp -c https://github.com/elvito/tm-linux-server-installhelper/archive/testing.zip
+
 #Entpacken nach /tmp
-unzip /tmp/testing/testing.zip -d /tmp/testing
-#Den installer nach home kopieren
-cp  /tmp/testing/tm-linux-server-installhelper-testing/install_tmlinuxserver.sh ~/
+unzip /tmp/testing.zip -d ~/
+
 # Ausführbar machen
-chmod 755 ~/install_tmlinuxserver.sh
+chmod 755 ~/tm-linux-server-installhelper-testing/install_tmlinuxserver.sh
+
 #Aufräumen nach Install
 rm -rf /tmp/testing*
+
 #Testen
-if [ -f ~/install_tmlinuxserver.sh ]
+if [ -f ~/tm-linux-server-installhelper-testing/install_tmlinuxserver.sh ]
 	then
 		clear
 		echo "install_tmlinuxserver.sh wurde aktualisiert"

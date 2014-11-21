@@ -44,7 +44,6 @@ while true; do
 choice=`$DIALOG --menu \
 	"Auswahl" 0 0 0 \
 	"Ubuntu Systemupdate" "" \
-	"Installation von tm-linux-server-installhelper" "" \
 	"Vollstandiges Entfernen von tm-linux-server-installhelper" "" \
 	"Installation von TM Linux Server" "" \
 	"Vollständiges Entfernen von TM Linux Server" "" \
@@ -69,41 +68,15 @@ case "$choice" in
 	$DIALOG --msgbox "Führen Sie anschließend erneut \"sudo install_tmlinuxserver.sh\" aus" 0 0
 	;;
 
-	#### Installation der Scripte ####
-	"Installation von tm-linux-server-installhelper")
-	$DIALOG --clear
-		if [ -d ~/tm-linux-server-scripte ]
-			then
-				$DIALOG --infobox "Der Installationsordner für die Scripte ist bereits vorhanden...\n\nBeginne mit dem synchronisieren" 0 0
-				sleep 5s
-				$DIALOG --clear
-				cd ~/tm-linux-server-scripte
-				git checkout testing
-				git pull https://github.com/elvito/tm-linux-server-installhelper.git
-			else
-				$DIALOG --infobox "Der Installationsordner für die Scripte wird neu angelegt, beginne in 5 Sekunden mit dem Clonen des Repository" 0 0
-				sleep 5s
-				$DIALOG --clear
-				$DIALOG --msgbox "Die Scripte werden unter ~/tm-linux-server-scripte/ gespeichert" 0 0
-				$DIALOG --clear
-				git clone git://github.com/elvito/tm-linux-server-installhelper.git ~/tm-linux-server-scripte
-				cd ~/tm-linux-server-scripte
-				git checkout testing
-				git pull https://github.com/elvito/tm-linux-server-installhelper.git
-				$DIALOG --msgbox "Die Scripte wurden erfolgreich im Ordner ~/tm-linux-server-scripte/ installiert :)" 0 0
-				$DIALOG --clear	    	
-		fi
-	;;
-	
 	# Löschen aller Scripte
 	"Vollstandiges Entfernen von tm-linux-server-installhelper")
 	$DIALOG --clear
-		if [ -d ~/tm-linux-server-scripte ]
+		if [ -d ~/tm-linux-server-installhelper* ]
 			then
 				$DIALOG --infobox "tm-linux-server-installhelper wird entfernt" 0 0
 		 		sleep 5s
 		 		$DIALOG --clear
-		 		rm -rf ~/tm-linux-server-scripte
+		 		rm -rf ~/tm-linux-server-installhelper*
 				$DIALOG --msgbox "tm-linux-server-installhelper wurde entfernt" 0 0
 			else
 				$DIALOG --msgbox "tm-linux-server-installhelper ist noch nicht installiert" 0 0
