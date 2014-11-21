@@ -58,7 +58,7 @@ case "$choice" in
 			$DIALOG --msgbox "Melden Sie sich bei Fehlermeldungen mit der exakten Fehlerausgabe im Forum" 0 0
 			$DIALOG --msgbox "Einrichtung des angepassten smb.conf abgeschlossen, starten Sie ggf. Samba neu falls Ihre Freigabe nicht verfügbar ist" 0 0
 			$DIALOG --clear
-			clear		
+			clear
 	;;
 	
 	# Samba Stop	
