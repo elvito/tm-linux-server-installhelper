@@ -21,7 +21,7 @@ Procedere am Beispiel einer VirtualboxVM mit einem vorbereiteten Ubuntu Serverim
 2. Das Image entpacken und in Virtualbox importieren
 3. Bei den Netzwerkeinstellungen in Virtualbox ggf. Adapter 1 von NAT auf Netzwerkbrücke umstellen
 4. Die VM starten und sich mit dem Benutzernamen: testserver und dem paswort test anmelden
-5. Den Updater ausführen mit: ./update_tm-installer-master.sh (Alternativ ./update-tm_installer-testing.sh für die aktuellste Testversion) 
+5. Den Updater ausführen mit: ./update_tm-installer-master.sh (Alternativ ./update_tm-installer-testing.sh für die aktuellste Testversion) 
 6. Mit: cd ~/tm-linux-server-installhelper in das Programmverzechnis wechseln
 7. Den Installer mit: sudo ./install_tmlinuxserver.sh starten
 8. Nach dem Systemupdate einen Reboot durchführen (am einfachsten geht das über den Installer)
