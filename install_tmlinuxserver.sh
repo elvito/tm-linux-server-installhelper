@@ -1,5 +1,4 @@
 #!/bin/bash
-# nicht vergessen vor dem mergen den branch zu ändern!!!!
 
 # Logging aktivieren
 # exec > >(tee ./install_tmlinuxserver.log)
@@ -90,7 +89,7 @@ case "$choice" in
 	"Installation von TM Linux Server")
 	$DIALOG --clear
 	clear
-	bash ~/tm-linux-server-installhelper-testing/installerscripts/tm-linux-server-vorbereitungsscript.sh 
+	bash ~/tm-linux-server-installhelper/installerscripts/tm-linux-server-vorbereitungsscript.sh 
 	;;
 
 	# Aufruf von TM_setup -rm und löschen des FastObject Verzeichnisses aus /opt und ~/Downloads/TMWin
@@ -114,7 +113,7 @@ case "$choice" in
 	
 	# Aufruf von tm_smbconf.sh
 	"Einrichtung von Samba")
-	bash ~/tm-linux-server-installhelper-testing/installerscripts/tm_smbconf.sh
+	bash ~/tm-linux-server-installhelper/installerscripts/tm_smbconf.sh
 	;;
 
 	# Aufruf von tm_iptablesconf.sh

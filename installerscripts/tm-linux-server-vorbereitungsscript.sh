@@ -23,7 +23,7 @@ if [ -d /opt/turbomed ]
 				$DIALOG --msgbox "Installation zusätzlich benötigter Pakete" 0 0
 				$DIALOG --clear
 				clear
-				apt-get install gksu mc openssh-server samba samba-doc tdb-tools libc6:i386 libssl0.9.8:i386 libgcc1:i386 libstdc++6:i386
+				apt-get install mc openssh-server samba samba-doc tdb-tools libc6:i386 libssl0.9.8:i386 libgcc1:i386 libstdc++6:i386
 
 				# Entpacken der TM Installationsdatei
 				$DIALOG --msgbox "Entpacken der CGM TM Installationsdatei" 0 0
