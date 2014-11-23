@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Variable definieren
+DIALOG=dialog
+
 #### Einrichtung von iptables #####
 
 # Zunächst mal sicherstellen das iptables installiert ist
