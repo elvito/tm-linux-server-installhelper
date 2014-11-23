@@ -46,6 +46,7 @@ choice=`$DIALOG --menu \
 	"Einrichtung von Samba" "" \
 	"Installation von TM Linux Server" "" \
 	"Einrichtung von iptables (Firewall)" "" \
+	"Einrichtung eines versionierten Backups" "" \
 	"Rebooten" "" \
 	"Den Rechner herunterfahren" "" \
 	"Vollständiges Entfernen von TM Linux Server" "" \
@@ -87,6 +88,14 @@ case "$choice" in
 	clear
 	bash ~/tm-linux-server-installhelper/installerscripts/tm_iptables.sh 
 	;;
+
+	# Aufruf von tm_iptablesconf.sh
+	"Einrichtung eines versionierten Backups")
+	$DIALOG --clear
+	clear
+	bash ~/tm-linux-server-installhelper/installerscripts/tm_backup.sh 
+	;;
+	
 
 	# Reboot
 	"Rebooten")
