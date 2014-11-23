@@ -83,9 +83,9 @@ case "$choice" in
 
 	# Aufruf von tm_iptablesconf.sh
 	"Einrichtung von iptables (Firewall)")
-	$DIALOG --msgbox "Diese Option ist noch nicht implementiert" 0 0
 	$DIALOG --clear
 	clear
+	bash ~/tm-linux-server-installhelper/installerscripts/tm_iptables.sh 
 	;;
 
 	# Reboot
