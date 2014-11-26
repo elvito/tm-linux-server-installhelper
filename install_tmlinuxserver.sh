@@ -45,6 +45,7 @@ choice=`$DIALOG --menu \
 	"Ubuntu Systemupdate" "" \
 	"Einrichtung von Samba" "" \
 	"Installation von TM Linux Server" "" \
+	"Update von TM Linux Server" "" \
 	"Einrichtung von iptables (Firewall)" "" \
 	"Einrichtung eines versionierten Backups" "" \
 	"Rebooten" "" \
@@ -80,6 +81,11 @@ case "$choice" in
 	$DIALOG --clear
 	clear
 	bash ~/tm-linux-server-installhelper/installerscripts/tm-linux-server-vorbereitungsscript.sh 
+	;;
+
+	# Aufruf von tm_update.sh
+	"Update von TM Linux Server")
+	bash ~/tm-linux-server-installhelper/installerscripts/tm_update.sh
 	;;
 
 	# Aufruf von tm_iptablesconf.sh
